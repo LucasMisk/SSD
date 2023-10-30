@@ -11,18 +11,20 @@ public class User implements Serializable {
     @Column(nullable = false, updatable = false)
     private long id;
     private String username;
+    private String email;
     private String password;
-    private UserType userType;
-    private Cart cart;
+    private String userType;
+    //private Cart cart;
     private String imageUrl;
     private String Adress;
 
-    public User(long id, String username, String password, UserType userType, Cart cart, String imageUrl, String adress) {
+    public User(long id, String username, String email, String password, String userType, Cart cart, String imageUrl, String adress) {
         this.id = id;
         this.username = username;
+        this.email = email;
         this.password = password;
         this.userType = userType;
-        this.cart = cart;
+        //this.cart = cart;
         this.imageUrl = imageUrl;
         Adress = adress;
     }
@@ -55,21 +57,21 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public UserType getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(UserType userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
-
+    /*
     public Cart getCart() {
         return cart;
     }
 
     public void setCart(Cart cart) {
         this.cart = cart;
-    }
+    } */
 
     public String getImageUrl() {
         return imageUrl;
@@ -92,11 +94,20 @@ public class User implements Serializable {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", userType=" + userType +
-                ", cart=" + cart +
+                //", cart=" + cart +
                 ", imageUrl='" + imageUrl + '\'' +
                 ", Adress='" + Adress + '\'' +
                 '}';
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

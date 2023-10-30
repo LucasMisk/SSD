@@ -1,9 +1,8 @@
-package com.PCBuilder.ComponentStore;
+package com.PCBuilder.ComponentStore.controller;
 
 import com.PCBuilder.ComponentStore.model.Component;
 import com.PCBuilder.ComponentStore.service.ComponentService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/component")
-public class ComponentResource {
+public class ComponentController {
     private final ComponentService componentService;
 
-    public ComponentResource(ComponentService componentService) {
+    public ComponentController(ComponentService componentService) {
         this.componentService = componentService;
     }
 

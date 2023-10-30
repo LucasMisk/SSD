@@ -13,9 +13,9 @@ public class Cart implements Serializable {
     @OneToMany
     private ArrayList<Component> components;
 
-    private CartStatus cartStatus;
+    private String cartStatus;
 
-    public Cart(long id, ArrayList<Component> components, CartStatus cartStatus) {
+    public Cart(long id, ArrayList<Component> components, String cartStatus) {
         this.id = id;
         this.components = components;
         this.cartStatus = cartStatus;
@@ -41,11 +41,11 @@ public class Cart implements Serializable {
         this.components = components;
     }
 
-    public CartStatus getCartStatus() {
+    public String getCartStatus() {
         return cartStatus;
     }
 
-    public void setCartStatus(CartStatus cartStatus) {
+    public void setCartStatus(String cartStatus) {
         this.cartStatus = cartStatus;
     }
 
