@@ -20,7 +20,6 @@ public class UserService {
     }
 
     public User createUser(User user) {
-        // You can add business logic or validation here before saving the user.
         return userRepository.save(user);
     }
 
@@ -37,7 +36,6 @@ public class UserService {
     }
 
     public void updateUser(User user) {
-        // You can add business logic or validation here before updating the user.
         userRepository.save(user);
     }
 
