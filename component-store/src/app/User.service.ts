@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {User} from "./User";
 import {environment} from "../enviroments/enviroment";
@@ -34,4 +34,11 @@ export class UserService {
   deleteUser(userId: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/delete/${userId}`);
   }
+  login(username: string, password: string): Observable<AuthenticationResponse> {
+    const loginRequest = { username, password };
+    return this.http.post<AuthenticationResponse>(`${this.baseUrl}/login`, loginRequest);
+  }
+}
+interface AuthenticationResponse {
+  username: string;
 }

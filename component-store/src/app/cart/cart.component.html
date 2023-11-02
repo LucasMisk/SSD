@@ -1,0 +1,29 @@
+<div class="cart-container">
+  <h2>Your Shopping Cart</h2>
+
+  <p>Cart ID: {{ cart.id }}</p>
+
+  <ng-container *ngIf="cart.components.length > 0; else emptyCart">
+    <ul>
+      <li *ngFor="let item of cart.components">
+        <div class="cart-item">
+          <div class="item-details">
+            <span class="item-brand">{{ item.brand }}</span>
+            <span class="item-model">{{ item.model }}</span>
+            <span class="item-price">$ {{ item.price }}</span>
+          </div>
+          <!-- Add a button to remove the item from the cart -->
+          <button (click)="removeComponentFromCart(cart.id,item.id)">Remove</button>
+        </div>
+      </li>
+    </ul>
+  </ng-container>
+
+  <ng-template #emptyCart>
+    <p>Your cart is empty.</p>
+  </ng-template>
+
+  <p class="total-price">Total Price: $ {{ calculateTotalPrice(cart.components) }}</p>
+
+  <button (click)="checkout('Ordered')">Proceed to Checkout</button>
+</div>

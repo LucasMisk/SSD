@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Log In</h2>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" formControlName="username">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" formControlName="password">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.valid">Log In</button>
+  </form>
+</div>

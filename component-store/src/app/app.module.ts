@@ -8,12 +8,16 @@ import {HttpClientModule} from "@angular/common/http";
 import { ComponentListComponent } from './component-list/component-list.component';
 import {RegisterComponent} from "./register/register.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { LoginComponent } from './login/login.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ComponentListComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [PCComponentService],
+  providers: [PCComponentService, RegisterComponent, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

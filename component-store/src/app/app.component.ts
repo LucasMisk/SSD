@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PCComponent } from './pcComponent'; // Adjust the import path as needed
-import { PCComponentService } from './pcComponent.service'; // Adjust the import path as needed
+import { PCComponentService } from './pcComponent.service';
+import {User} from "./User";
+import {UserService} from "./User.service"; // Adjust the import path as needed
 
 @Component({
   selector: 'app-root',
@@ -10,11 +12,13 @@ import { PCComponentService } from './pcComponent.service'; // Adjust the import
 export class AppComponent implements OnInit {
   title = 'PC Component Store';
   components: PCComponent[] = [];
+  users: User[] = [];
 
-  constructor(private componentService: PCComponentService) {}
+  constructor(private componentService: PCComponentService, private userService: UserService) {}
 
   ngOnInit() {
     this.loadAllComponents();
+    this.loadAllUsers();
   }
 
   loadAllComponents() {
@@ -27,4 +31,14 @@ export class AppComponent implements OnInit {
       }
     );
   }
+  loadAllUsers() {
+    this.userService.getAllUsers().subscribe(
+      (users) => {
+        this.users = users;
+      },
+      (error) => {
+        console.error('Error loading users:', error);
+      }
+    )
+  };
 }
