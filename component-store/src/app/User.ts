@@ -10,7 +10,7 @@ export class User {
     this.username = username;
     this.email = email;
     this.password = password;
-    this.userType = "Client";
+    this.userType = "Admin";
     this.imageUrl = imageUrl;
     this.address = address;
   }

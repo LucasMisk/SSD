@@ -26,7 +26,7 @@ import { CartComponent } from './cart/cart.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [PCComponentService, RegisterComponent, LoginComponent],
+  providers: [PCComponentService, RegisterComponent, LoginComponent, CartComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

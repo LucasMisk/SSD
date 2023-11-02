@@ -13,12 +13,13 @@ export class AppComponent implements OnInit {
   title = 'PC Component Store';
   components: PCComponent[] = [];
   users: User[] = [];
-
+  currentUser!: User;
   constructor(private componentService: PCComponentService, private userService: UserService) {}
 
   ngOnInit() {
     this.loadAllComponents();
     this.loadAllUsers();
+    this.getCurrentUser();
   }
 
   loadAllComponents() {
@@ -41,4 +42,7 @@ export class AppComponent implements OnInit {
       }
     )
   };
+  getCurrentUser() {
+    this.userService.getUserById(2).subscribe(user => {this.currentUser = user});
+  }
 }
