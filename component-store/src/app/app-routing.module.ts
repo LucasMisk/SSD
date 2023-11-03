@@ -7,7 +7,7 @@ import {LoginComponent} from "./login/login.component";
 import {CartComponent} from "./cart/cart.component";
 
 const routes: Routes = [
-  { path: 'list', component: ComponentListComponent },
+  { path: '', component: ComponentListComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cart', component: CartComponent }

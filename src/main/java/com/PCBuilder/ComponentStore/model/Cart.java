@@ -2,6 +2,8 @@ package com.PCBuilder.ComponentStore.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -11,7 +13,7 @@ public class Cart implements Serializable {
     @Column(nullable = false, updatable = false)
     private long id;
     @OneToMany
-    private ArrayList<Component> components;
+    private List<Component> components;
 
     private String cartStatus;
 
@@ -33,11 +35,11 @@ public class Cart implements Serializable {
         this.id = id;
     }
 
-    public ArrayList<Component> getComponents() {
+    public List<Component> getComponents() {
         return components;
     }
 
-    public void setComponents(ArrayList<Component> components) {
+    public void setComponents(List<Component> components) {
         this.components = components;
     }
 

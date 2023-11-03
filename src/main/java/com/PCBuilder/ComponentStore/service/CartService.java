@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -38,12 +39,11 @@ public class CartService {
         Optional<Cart> optionalCart = cartRepo.findById(cartId);
         if (optionalCart.isPresent()) {
             Cart cart = optionalCart.get();
-            ArrayList<Component> components = cart.getComponents();
+            List<Component> components = cart.getComponents();
             components.add(component);
             cart.setComponents(components);
             return cartRepo.save(cart);
         } else {
-            // Handle cart not found
             return null;
         }
     }
@@ -53,7 +53,7 @@ public class CartService {
         Optional<Cart> optionalCart = cartRepo.findById(cartId);
         if (optionalCart.isPresent()) {
             Cart cart = optionalCart.get();
-            ArrayList<Component> components = cart.getComponents();
+            List<Component> components = cart.getComponents();
             components.remove(component);
             cart.setComponents(components);
             return cartRepo.save(cart);

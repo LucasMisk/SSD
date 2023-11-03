@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cart } from './Cart';
+import {PCComponent} from "./pcComponent";
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,8 @@ export class CartService {
     return this.http.get<Cart>(`${this.baseUrl}/${cartId}`);
   }
 
-  addComponentToCart(cartId: number, componentId: number): Observable<Cart> {
-    return this.http.post<Cart>(`${this.baseUrl}/${cartId}/add-component`, { componentId });
+  addComponentToCart(cartId: number, component: PCComponent): Observable<Cart> {
+    return this.http.post<Cart>(`${this.baseUrl}/${cartId}/add-component`, { component });
   }
 
   removeComponentFromCart(cartId: number, componentId: number): Observable<Cart> {
