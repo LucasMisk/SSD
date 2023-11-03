@@ -16,9 +16,6 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     // You may load the cart here using the CartService and update the 'cart' property
     this.createCart();
-    this.addComponentToCart(this.cart.id,1);
-    this.addComponentToCart(this.cart.id,2);
-    this.addComponentToCart(this.cart.id,3);
   }
 
 
@@ -43,7 +40,7 @@ export class CartComponent implements OnInit {
       return sum;
   }
 
-  addComponentToCart(cartId:number, componentId:number){
-    this.cartService.addComponentToCart(cartId, componentId).subscribe((cart: Cart) => console.log('Added component' + componentId + 'to cart'));
+  addComponentToCart(cartId:number, component: PCComponent){
+    this.cartService.addComponentToCart(cartId, component).subscribe((cart: Cart) => console.log('Added component' + component.id+ 'to cart'));
   }
 }

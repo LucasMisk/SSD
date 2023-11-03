@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PCComponent} from "../pcComponent";
 import {PCComponentService} from "../pcComponent.service";
+import {Cart} from "../Cart";
+import {CartService} from "../Cart.service";
 
 @Component({
   selector: 'app-component-list',
@@ -10,13 +12,17 @@ import {PCComponentService} from "../pcComponent.service";
 export class ComponentListComponent implements OnInit {
   title = 'PC Component Store';
   components: PCComponent[] = [];
-
-  constructor(private componentService: PCComponentService) {}
+    cart!: Cart;
+  constructor(private componentService: PCComponentService, public cartService: CartService) {}
 
   ngOnInit() {
-    this.loadAllComponents();
-  }
 
+    this.loadAllComponents();
+    this.cartService.createCart().subscribe((cart: Cart) => {
+      this.cart = cart;
+      console.log(this.cart);
+    });
+  }
   loadAllComponents() {
     this.componentService.getAllComponents().subscribe(
       (components) => {
@@ -27,9 +33,13 @@ export class ComponentListComponent implements OnInit {
       }
     );
   }
+  addComponentToCart(component: PCComponent)
+  {
+      this.cartService.addComponentToCart(this.cart.id,component).subscribe((cart: Cart) => console.log(this.cart));
+  }
+
+    protected readonly Component = Component;
+    protected readonly console = console;
+    protected readonly Cart = Cart;
 }
-
-
-
-
 

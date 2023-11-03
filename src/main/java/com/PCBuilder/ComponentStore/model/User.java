@@ -11,8 +11,7 @@ public class User implements Serializable {
     @Column(nullable = false, updatable = false)
     private long id;
     private String username;
-    private String email;
-    private String password;
+    private String email;    private String password;
     private String userType;
     //private Cart cart;
     private String imageUrl;
