@@ -2,6 +2,7 @@ package com.PCBuilder.ComponentStore.service;
 
 import com.PCBuilder.ComponentStore.exception.CartNotFoundException;
 import com.PCBuilder.ComponentStore.model.Cart;
+import com.PCBuilder.ComponentStore.model.CartItem;
 import com.PCBuilder.ComponentStore.model.Component;
 import com.PCBuilder.ComponentStore.repo.CartRepo;
 
@@ -32,35 +33,6 @@ public class CartService {
     // Get a cart by ID
     public Optional<Cart> getCartById(long cartId) {
         return cartRepo.findById(cartId);
-    }
-
-    // Add a component to a cart
-    public Cart addComponentToCart(long cartId, Component component) {
-        Optional<Cart> optionalCart = cartRepo.findById(cartId);
-        if (optionalCart.isPresent()) {
-            Cart cart = optionalCart.get();
-            List<Component> components = cart.getComponents();
-            components.add(component);
-            cart.setComponents(components);
-            return cartRepo.save(cart);
-        } else {
-            return null;
-        }
-    }
-
-    // Remove a component from a cart
-    public Cart removeComponentFromCart(long cartId, Component component) {
-        Optional<Cart> optionalCart = cartRepo.findById(cartId);
-        if (optionalCart.isPresent()) {
-            Cart cart = optionalCart.get();
-            List<Component> components = cart.getComponents();
-            components.remove(component);
-            cart.setComponents(components);
-            return cartRepo.save(cart);
-        } else {
-            // Handle cart not found
-            return null;
-        }
     }
 
     // Update cart status

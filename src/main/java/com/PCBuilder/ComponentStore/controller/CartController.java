@@ -29,16 +29,6 @@ public class CartController {
         return cartService.getCartById(cartId);
     }
 
-    @PostMapping("/{cartId}/add-component")
-    public Cart addComponentToCart(@PathVariable long cartId, @RequestBody Component component) {
-        return cartService.addComponentToCart(cartId, component);
-    }
-
-    @PostMapping("/{cartId}/remove-component")
-    public Cart removeComponentFromCart(@PathVariable long cartId, @RequestBody Component component) {
-        return cartService.removeComponentFromCart(cartId, component);
-    }
-
     @PostMapping("/{cartId}/update-status")
     public Cart updateCartStatus(@PathVariable long cartId, @RequestParam String newStatus) {
         return cartService.updateCartStatus(cartId, newStatus);

@@ -12,14 +12,14 @@ public class Cart implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private long id;
-    @OneToMany
-    private List<Component> components;
+    @OneToMany(mappedBy = "cart")
+    private List<CartItem> cartItems;
 
     private String cartStatus;
 
-    public Cart(long id, ArrayList<Component> components, String cartStatus) {
+    public Cart(long id, List<CartItem> cartItems, String cartStatus) {
         this.id = id;
-        this.components = components;
+        this.cartItems = cartItems;
         this.cartStatus = cartStatus;
     }
 
@@ -35,12 +35,12 @@ public class Cart implements Serializable {
         this.id = id;
     }
 
-    public List<Component> getComponents() {
-        return components;
+    public List<CartItem> getCartItems() {
+        return cartItems;
     }
 
-    public void setComponents(List<Component> components) {
-        this.components = components;
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 
     public String getCartStatus() {
@@ -55,7 +55,7 @@ public class Cart implements Serializable {
     public String toString() {
         return "Cart{" +
                 "id=" + id +
-                ", components=" + components.toString() +
+                ", components=" + cartItems.toString() +
                 ", cartStatus=" + cartStatus +
                 '}';
     }
