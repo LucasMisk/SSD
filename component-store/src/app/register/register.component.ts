@@ -6,7 +6,7 @@ import {User} from "../User";
 @Component({
   selector: 'app-registration-form',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['../app.component.css']
 })
 export class RegisterComponent{
   registrationForm = this.formBuilder.group({
@@ -22,13 +22,14 @@ export class RegisterComponent{
     private userService: UserService
   ) {}
   onSubmit(): void {
-    let user = new User(this.registrationForm.value.username!, this.registrationForm.value.email!, this.registrationForm.value.password!, this.registrationForm.value.imageUrl!, this.registrationForm.value.address!);
+    let user = new User(1,this.registrationForm.value.username!, this.registrationForm.value.email!, this.registrationForm.value.password!, this.registrationForm.value.imageUrl!, this.registrationForm.value.address!);
     console.log(user);
     this.userService.createUser(user).subscribe(response => {
       console.log(response)
     }, error => {
       // Do something if an error occurs
     });
+    window.location.reload();
   }
 }
 

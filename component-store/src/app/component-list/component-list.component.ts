@@ -4,12 +4,13 @@ import { PCComponentService } from '../pcComponent.service';
 import { Cart } from '../Cart';
 import { CartService } from '../Cart.service';
 import { CartItem } from '../CartItem'; // Import the CartItem class
-import { CartItemService } from '../CartItem.service'; // Import the CartItemService
+import { CartItemService } from '../CartItem.service';
+import {SharedService} from "../Share.service"; // Import the CartItemService
 
 @Component({
   selector: 'app-component-list',
   templateUrl: './component-list.component.html',
-  styleUrls: ['./component-list.component.css'],
+  styleUrls: ['../app.component.css'],
 })
 export class ComponentListComponent implements OnInit {
   title = 'PC Component Store';
@@ -19,7 +20,8 @@ export class ComponentListComponent implements OnInit {
   constructor(
     private componentService: PCComponentService,
     public cartService: CartService,
-    public cartItemService: CartItemService // Inject CartItemService
+    public cartItemService: CartItemService,
+    private sharedService : SharedService
   ) {}
 
   ngOnInit() {
@@ -47,5 +49,9 @@ export class ComponentListComponent implements OnInit {
       .subscribe((cartItem: CartItem) => {
         console.log('Added to cart:', cartItem);
       });
+  }
+
+  sendMessage(msg : string) {
+    this.sharedService.send(msg);
   }
 }

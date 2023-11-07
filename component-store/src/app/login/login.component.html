@@ -1,15 +1,16 @@
 <div class="container">
-  <h2>Log In</h2>
-  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" formControlName="username">
+  <h2 class="fw-bolder">Log In</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username:</label>
+      <input type="text" id="username" name="username" class="form-control" formControlName="username">
     </div>
 
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" formControlName="password">
+    <div class="mb-3">
+      <label for="password" class="form-label">Password:</label>
+      <input type="password" id="password" name="password" class="form-control" formControlName="password">
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.valid">Log In</button>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log In</button>
   </form>
 </div>

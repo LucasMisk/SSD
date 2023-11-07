@@ -10,7 +10,6 @@ public class CartItem{
     @Column(nullable = false, updatable = false)
     private Long id;
 
-    @JsonIgnore
     @ManyToOne
     private Component component;
 

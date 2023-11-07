@@ -10,6 +10,10 @@ import {RegisterComponent} from "./register/register.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
+import {SharedService} from "./Share.service";
+import { UserAdminComponent } from './user-admin/user-admin.component';
+import { ComponentAdminComponent } from './component-admin/component-admin.component';
+import { AdminPageComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,10 @@ import { CartComponent } from './cart/cart.component';
     ComponentListComponent,
     RegisterComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    UserAdminComponent,
+    ComponentAdminComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,7 @@ import { CartComponent } from './cart/cart.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [PCComponentService, RegisterComponent, LoginComponent, CartComponent],
+  providers: [PCComponentService, RegisterComponent, LoginComponent, CartComponent, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

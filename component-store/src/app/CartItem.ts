@@ -5,12 +5,12 @@ import {Cart} from "./Cart";
 
 export class CartItem {
   id: number | null | undefined;
-  product!: PCComponent;
+  component!: PCComponent;
   cart!: Cart;
   quantity!: number;
 
-  constructor(product: PCComponent, cart: Cart, quantity: number) {
-    this.product = product;
+  constructor(component: PCComponent, cart: Cart, quantity: number) {
+    this.component = component;
     this.cart = cart;
     this.quantity = quantity;
   }

@@ -1,6 +1,6 @@
 export class PCComponent {
   id: number;
-  componentType: string;
+  type: string;
   brand: string;
   model: string;
   details: string;
@@ -9,7 +9,7 @@ export class PCComponent {
 
   constructor(
     id: number,
-    componentType: string,
+    type: string,
     brand: string,
     model: string,
     details: string,
@@ -17,7 +17,7 @@ export class PCComponent {
     price: number
   ) {
     this.id = id;
-    this.componentType = componentType;
+    this.type = type;
     this.brand = brand;
     this.model = model;
     this.details = details;

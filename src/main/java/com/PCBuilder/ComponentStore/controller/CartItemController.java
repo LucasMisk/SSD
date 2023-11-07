@@ -27,11 +27,6 @@ public class CartItemController {
 
     @PostMapping
     public CartItem createCartItem(@RequestParam Long productId, @RequestParam Long shoppingCartId, @RequestParam int quantity) {
-        // You need to fetch the Product and ShoppingCart entities here from their respective services or repositories.
-        // Then, call the CartItemService to create the cart item.
-        // Make sure to validate the existence of the product and shopping cart.
-        // For brevity, I'm assuming you already have methods to fetch these entities.
-
         Component product = componentService.findComponentById(productId);
         Cart cart = cartService.getCartById(shoppingCartId).orElseThrow();
         return cartItemService.createCartItem(product, cart, quantity);

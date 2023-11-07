@@ -1,13 +1,14 @@
 import {Component} from "@angular/core";
 import {PCComponent} from "./pcComponent";
+import {CartItem} from "./CartItem";
 
 export class Cart {
   id: number;
-  components: PCComponent[];
+  cartItems: CartItem[];
   cartStatus: string;
-  constructor(id: number, components: PCComponent[], cartStatus: string) {
+  constructor(id: number, cartItems: CartItem[], cartStatus: string) {
     this.id = id;
-    this.components = components;
+    this.cartItems = cartItems;
     this.cartStatus = cartStatus;
   }
 }

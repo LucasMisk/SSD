@@ -1,3 +1,23 @@
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">SALE</h1>
+      <p class="lead fw-normal text-50 mb-0">Best prices only today</p>
+    </div>
+  </div>
+</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container px-4 px-lg-5">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="d-flex">
+        <button class="btn btn-outline-dark" routerLink="/cart" type="submit" (click)="sendMessage(this.cart.id.toString())">
+          <i class="bi-cart-fill me-1"></i>
+          Cart
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">

@@ -6,10 +6,10 @@ import {User} from "../User";
 @Component({
   selector: 'app-registration-form',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['../app.component.css']
 })
 export class LoginComponent{
-  registrationForm = this.formBuilder.group({
+  loginForm = this.formBuilder.group({
     username: "",
     password: "",
   });
@@ -18,7 +18,7 @@ export class LoginComponent{
     private userService: UserService
   ) {}
   onSubmit(): void {
-    this.userService.login(this.registrationForm.value.username!, this.registrationForm.value.password!).subscribe(
+    this.userService.login(this.loginForm.value.username!, this.loginForm.value.password!).subscribe(
       (response) => {
         // Handle the successful login response here
       },

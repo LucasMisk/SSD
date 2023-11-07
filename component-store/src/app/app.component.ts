@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.loadAllComponents();
     this.loadAllUsers();
-    this.getCurrentUser();
+    //this.getCurrentUser();
   }
 
   loadAllComponents() {

@@ -28,11 +28,11 @@ public class UserService {
     }
 
     public User getUserById(long userId) {
-        return userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("Component with id " + userId + " was not found"));
+        return userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User with id " + userId + " was not found"));
     }
 
     public User getUserByEmail(String userEmail) {
-        return userRepository.findUserByEmail(userEmail).orElseThrow(() -> new UserNotFoundException("Component with email " + userEmail + " was not found"));
+        return userRepository.findUserByEmail(userEmail).orElseThrow(() -> new UserNotFoundException("User with email " + userEmail + " was not found"));
     }
 
     public void updateUser(User user) {

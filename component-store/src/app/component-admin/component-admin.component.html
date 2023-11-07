@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Add your navigation links if needed -->
+        </div>
+    </div>
+</nav>
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div *ngFor="let component of components">
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Component details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Component info-->
+                                <img class="card-img-top" src="{{component?.imageUrl}}" alt="..." />
+                                <h5 class="fw-bolder">{{ component.brand }} {{ component.model }}</h5>
+                                <p>Component Type: {{ component.type }}</p>
+                                <p>Details: {{ component.details }}</p>
+                                <p>Price: {{ component.price }}$</p>
+                            </div>
+                        </div>
+                        <!-- Component actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <button class="btn btn-outline-dark mt-auto" (click)="selectComponent(component)">Edit</button>
+                                <button class="btn btn-outline-danger mt-auto" (click)="deleteComponent(component.id)">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Component update form -->
+<div *ngIf="selectedComponent" class="container px-4 px-lg-5 mt-5">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <h5 class="fw-bolder">Update Component</h5>
+                    <form (submit)="updateComponent(selectedComponent)">
+                        <div class="mb-3">
+                            <label for="imageUrl" class="form-label">Image Link</label>
+                            <input type="text" class="form-control" id="imageUrl" [(ngModel)]="selectedComponent.imageUrl" name="imageUrl" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="type" class="form-label">Component Type</label>
+                            <input type="text" class="form-control" id="type" [(ngModel)]="selectedComponent.type" name="type" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="brand" class="form-label">Brand</label>
+                            <input type="text" class="form-control" id="brand" [(ngModel)]="selectedComponent.brand" name="brand" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="model" class="form-label">Model</label>
+                            <input type="text" class="form-control" id="model" [(ngModel)]="selectedComponent.model" name="model" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="details" class="form-label">Details</label>
+                            <input type="text" class="form-control" id="details" [(ngModel)]="selectedComponent.details" name="details">
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="price" [(ngModel)]="selectedComponent.price" name="price" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
