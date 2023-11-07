@@ -21,15 +21,16 @@ export class RegisterComponent{
     private formBuilder: FormBuilder,
     private userService: UserService
   ) {}
+  id:number = 0;
   onSubmit(): void {
-    let user = new User(1,this.registrationForm.value.username!, this.registrationForm.value.email!, this.registrationForm.value.password!,'Client', this.registrationForm.value.imageUrl!, this.registrationForm.value.address!);
+    let user = new User(this.id,this.registrationForm.value.username!, this.registrationForm.value.email!, this.registrationForm.value.password!,'Client', this.registrationForm.value.imageUrl!, this.registrationForm.value.address!);
     console.log(user);
     this.userService.createUser(user).subscribe(response => {
-      console.log(response)
+      console.log(response);
+      window.location.reload();
     }, error => {
-      // Do something if an error occurs
+      console.log(error);
     });
-    window.location.reload();
   }
 }
 

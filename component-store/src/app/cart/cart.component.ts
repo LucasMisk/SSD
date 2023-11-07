@@ -58,9 +58,9 @@ export class CartComponent implements OnInit {
             {
                 this.cart = cart;
                 console.log(this.cart);
+                window.location.reload();
             }
         );
-        window.location.reload();
     }
 
   checkout()
