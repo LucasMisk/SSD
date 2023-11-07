@@ -22,7 +22,7 @@ export class RegisterComponent{
     private userService: UserService
   ) {}
   onSubmit(): void {
-    let user = new User(1,this.registrationForm.value.username!, this.registrationForm.value.email!, this.registrationForm.value.password!, this.registrationForm.value.imageUrl!, this.registrationForm.value.address!);
+    let user = new User(1,this.registrationForm.value.username!, this.registrationForm.value.email!, this.registrationForm.value.password!,'Client', this.registrationForm.value.imageUrl!, this.registrationForm.value.address!);
     console.log(user);
     this.userService.createUser(user).subscribe(response => {
       console.log(response)

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PCComponentService} from "../pcComponent.service";
 import {PCComponent} from "../pcComponent";
-
+import {PCComponentService} from "../pcComponent.service";
 
 @Component({
   selector: 'app-component-admin',
@@ -11,6 +10,7 @@ import {PCComponent} from "../pcComponent";
 export class ComponentAdminComponent implements OnInit {
   components: PCComponent[] = [];
   selectedComponent: PCComponent | null = null;
+  newComponent: PCComponent = new PCComponent(0, '', '', '', '', '', 0); // Initialize a new component
 
   constructor(private componentService: PCComponentService) {}
 
@@ -39,6 +39,13 @@ export class ComponentAdminComponent implements OnInit {
     this.componentService.deleteComponent(componentId).subscribe(() => {
       this.loadComponents();
       this.selectedComponent = null;
+    });
+  }
+
+  addComponent() {
+    this.componentService.addComponent(this.newComponent).subscribe(() => {
+      this.loadComponents();
+      this.newComponent = new PCComponent(0, '', '', '', '', '', 0); // Reset the newComponent
     });
   }
 }
