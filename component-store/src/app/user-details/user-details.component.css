@@ -1,0 +1,15 @@
+/* user-details.component.css */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+h2 {
+  color: #333;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}

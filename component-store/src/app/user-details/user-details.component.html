@@ -1,0 +1,14 @@
+<!-- user-details.component.html -->
+<div class="container">
+  <h2>User Details</h2>
+  <div *ngIf="currentUser">
+    <p><strong>Name:</strong> {{ currentUser.username }}</p>
+    <p><strong>Email:</strong> {{ currentUser.email }}</p>
+    <p><strong>Role/Provider:</strong> {{ currentUser.userType }}</p>
+    <p><strong>Photo:</strong></p>
+    <img *ngIf="currentUser.imageUrl" [src]="currentUser.imageUrl" alt="User Photo">
+  </div>
+  <div *ngIf="!currentUser">
+    <p>No user details available. Please log in.</p>
+  </div>
+</div>

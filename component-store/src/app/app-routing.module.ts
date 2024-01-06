@@ -8,6 +8,7 @@ import {CartComponent} from "./cart/cart.component";
 import {UserAdminComponent} from "./user-admin/user-admin.component";
 import {ComponentAdminComponent} from "./component-admin/component-admin.component";
 import {AdminPageComponent} from "./admin/admin.component";
+import {UserDetailsComponent} from "./user-details/user-details.component";
 
 const routes: Routes = [
   { path: '', component: ComponentListComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'admin/users', component: UserAdminComponent},
   { path: 'admin/components', component: ComponentAdminComponent},
-  { path: 'admin', component: AdminPageComponent}
+  { path: 'admin', component: AdminPageComponent},
+  { path: 'user', component: UserDetailsComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes), FormsModule],

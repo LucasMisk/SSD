@@ -1,0 +1,41 @@
+/* Add this styling to your component's CSS file or styles section */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh; /* Adjust as needed */
+  margin-top: 50px; /* Adjust the margin-top as needed */
+}
+
+.login-container {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  color: #333;
+}
+
+p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.google-signin-button {
+  margin-top: 20px;
+  /* Adjust the width and height as needed */
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

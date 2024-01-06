@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from "./User";
 import {environment} from "../enviroments/enviroment";
 
@@ -9,8 +9,17 @@ import {environment} from "../enviroments/enviroment";
 })
 export class UserService {
   private baseUrl = environment.apiUrl + "/api/users";
+  private currentUserSubject: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
+  currentUser$ = this.currentUserSubject.asObservable();
   constructor(private http: HttpClient) {}
 
+  setUser(user: User | null) {
+    this.currentUserSubject.next(user);
+  }
+
+  getCurrentUser(): User | null {
+    return this.currentUserSubject.value;
+  }
   createUser(user: User): Observable<User> {
     return this.http.post<User>(`${this.baseUrl}/create`, user);
   }

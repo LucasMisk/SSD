@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PCComponent } from './pcComponent'; // Adjust the import path as needed
 import { PCComponentService } from './pcComponent.service';
 import {User} from "./User";
-import {UserService} from "./User.service"; // Adjust the import path as needed
+import {UserService} from "./User.service";
+import {SocialAuthService} from "@abacritt/angularx-social-login"; // Adjust the import path as needed
 
 @Component({
   selector: 'app-root',
@@ -13,13 +14,18 @@ export class AppComponent implements OnInit {
   title = 'PC Component Store';
   components: PCComponent[] = [];
   users: User[] = [];
-  currentUser!: User;
+  currentUser!: User|null;
+  user: any;
+  loggedIn: any;
   constructor(private componentService: PCComponentService, private userService: UserService) {}
 
   ngOnInit() {
     this.loadAllComponents();
     this.loadAllUsers();
-    //this.getCurrentUser();
+    this.userService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+      console.log(this.currentUser);
+    });
   }
 
   loadAllComponents() {
@@ -42,7 +48,9 @@ export class AppComponent implements OnInit {
       }
     )
   };
-  getCurrentUser() {
-    this.userService.getUserById(2).subscribe(user => {this.currentUser = user});
+
+  logOut()
+  {
+    this.userService.setUser(null);
   }
 }

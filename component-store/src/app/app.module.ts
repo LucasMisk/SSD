@@ -14,6 +14,11 @@ import {SharedService} from "./Share.service";
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { ComponentAdminComponent } from './component-admin/component-admin.component';
 import { AdminPageComponent } from './admin/admin.component';
+import {SocialLoginModule, SocialAuthServiceConfig, GoogleSigninButtonModule} from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+} from '@abacritt/angularx-social-login';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,8 @@ import { AdminPageComponent } from './admin/admin.component';
     CartComponent,
     UserAdminComponent,
     ComponentAdminComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +38,28 @@ import { AdminPageComponent } from './admin/admin.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule,
   ],
-  providers: [PCComponentService, RegisterComponent, LoginComponent, CartComponent, SharedService],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '98310474368-17bkddheudb5ev5cdar49udvntlrr0f5.apps.googleusercontent.com'
+            )
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    },
+    PCComponentService, RegisterComponent, LoginComponent, CartComponent, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

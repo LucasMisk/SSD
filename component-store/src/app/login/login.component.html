@@ -1,16 +1,9 @@
 <div class="container">
-  <h2 class="fw-bolder">Log In</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label for="username" class="form-label">Username:</label>
-      <input type="text" id="username" name="username" class="form-control" formControlName="username">
+  <div class="login-container">
+    <h2>Welcome to PC Component Shop</h2>
+    <p>Login with your Google account to access the features.</p>
+    <div class="google-signin-button">
+      <asl-google-signin-button type="standard" size="large"></asl-google-signin-button>
     </div>
-
-    <div class="mb-3">
-      <label for="password" class="form-label">Password:</label>
-      <input type="password" id="password" name="password" class="form-control" formControlName="password">
-    </div>
-
-    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log In</button>
-  </form>
+  </div>
 </div>

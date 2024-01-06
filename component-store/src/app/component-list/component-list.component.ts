@@ -5,7 +5,9 @@ import { Cart } from '../Cart';
 import { CartService } from '../Cart.service';
 import { CartItem } from '../CartItem'; // Import the CartItem class
 import { CartItemService } from '../CartItem.service';
-import {SharedService} from "../Share.service"; // Import the CartItemService
+import {SharedService} from "../Share.service";
+import {User} from "../User";
+import {UserService} from "../User.service"; // Import the CartItemService
 
 @Component({
   selector: 'app-component-list',
@@ -16,12 +18,14 @@ export class ComponentListComponent implements OnInit {
   title = 'PC Component Store';
   components: PCComponent[] = [];
   cart!: Cart;
+  currentUser!: User|null;
 
   constructor(
     private componentService: PCComponentService,
     public cartService: CartService,
     public cartItemService: CartItemService,
-    private sharedService : SharedService
+    private sharedService : SharedService,
+    private userService : UserService
   ) {}
 
   ngOnInit() {
@@ -29,6 +33,10 @@ export class ComponentListComponent implements OnInit {
     this.cartService.createCart().subscribe((cart: Cart) => {
       this.cart = cart;
       console.log(this.cart);
+    });
+    this.userService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+      console.log(this.currentUser);
     });
   }
 
