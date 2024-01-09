@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cart } from './Cart';
 import {PCComponent} from "./pcComponent";
+import {environment} from "../enviroments/enviroment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private baseUrl = 'http://localhost:8080/api/carts'; // Replace with your backend API endpoint
+  private baseUrl = environment.apiUrl; // Replace with your backend API endpoint
 
   constructor(private http: HttpClient) { }
 

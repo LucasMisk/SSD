@@ -1,0 +1,17 @@
+/* faq.component.css */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+h2 {
+  color: #333;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #007bff;
+}

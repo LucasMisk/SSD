@@ -9,6 +9,8 @@ import {UserAdminComponent} from "./user-admin/user-admin.component";
 import {ComponentAdminComponent} from "./component-admin/component-admin.component";
 import {AdminPageComponent} from "./admin/admin.component";
 import {UserDetailsComponent} from "./user-details/user-details.component";
+import {FaqComponent} from "./faq/faq.component";
+import {ContactComponent} from "./contact/contact.component";
 
 const routes: Routes = [
   { path: '', component: ComponentListComponent },
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'admin/users', component: UserAdminComponent},
   { path: 'admin/components', component: ComponentAdminComponent},
   { path: 'admin', component: AdminPageComponent},
-  { path: 'user', component: UserDetailsComponent}
+  { path: 'user', component: UserDetailsComponent},
+  { path: 'faq', component: FaqComponent},
+  { path: 'contact', component: ContactComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes), FormsModule],

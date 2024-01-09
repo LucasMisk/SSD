@@ -19,6 +19,8 @@ import {
   GoogleLoginProvider,
 } from '@abacritt/angularx-social-login';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { FaqComponent } from './faq/faq.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     UserAdminComponent,
     ComponentAdminComponent,
     AdminPageComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    FaqComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
