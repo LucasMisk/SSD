@@ -1,6 +1,0 @@
-{
-  "/api": {
-    "target": "http://pccstore.eu-north-1.elasticbeanstalk.com",
-    "secure": false
-  }
-}

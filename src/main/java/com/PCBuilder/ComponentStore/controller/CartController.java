@@ -20,21 +20,25 @@ public class CartController {
     }
 
     @PostMapping("/create")
+    @CrossOrigin
     public Cart createCart() {
         return cartService.createCart();
     }
 
     @GetMapping("/{cartId}")
+    @CrossOrigin
     public Optional<Cart> getCartById(@PathVariable long cartId) {
         return cartService.getCartById(cartId);
     }
 
     @PostMapping("/{cartId}/update-status")
+    @CrossOrigin
     public Cart updateCartStatus(@PathVariable long cartId, @RequestParam String newStatus) {
         return cartService.updateCartStatus(cartId, newStatus);
     }
 
     @DeleteMapping("/{cartId}")
+    @CrossOrigin
     public void deleteCart(@PathVariable long cartId) {
         try {
             cartService.deleteCart(cartId);

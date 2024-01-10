@@ -26,6 +26,7 @@ public class CartItemController {
     }
 
     @PostMapping
+    @CrossOrigin
     public CartItem createCartItem(@RequestParam Long productId, @RequestParam Long shoppingCartId, @RequestParam int quantity) {
         Component product = componentService.findComponentById(productId);
         Cart cart = cartService.getCartById(shoppingCartId).orElseThrow();
@@ -33,11 +34,13 @@ public class CartItemController {
     }
 
     @PutMapping("/{cartItemId}")
+    @CrossOrigin
     public void updateCartItemQuantity(@PathVariable Long cartItemId, @RequestParam int newQuantity) {
         cartItemService.updateCartItemQuantity(cartItemId, newQuantity);
     }
 
     @DeleteMapping("/{cartItemId}")
+    @CrossOrigin
     public void removeCartItem(@PathVariable Long cartItemId) {
         cartItemService.removeCartItem(cartItemId);
     }

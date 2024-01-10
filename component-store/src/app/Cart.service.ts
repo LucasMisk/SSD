@@ -9,7 +9,7 @@ import {environment} from "../enviroments/enviroment";
   providedIn: 'root'
 })
 export class CartService {
-  private baseUrl = environment.apiUrl; // Replace with your backend API endpoint
+  private baseUrl = environment.apiUrl+"/api/carts"; // Replace with your backend API endpoint
 
   constructor(private http: HttpClient) { }
 

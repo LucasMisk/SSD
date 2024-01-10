@@ -18,30 +18,35 @@ public class ComponentController {
     }
 
     @GetMapping("/allComponents")
+    @CrossOrigin
     public ResponseEntity<List<Component>> getAllComponents() {
         List<Component> components = componentService.findAllComponents();
         return new ResponseEntity<>(components, HttpStatus.OK);
     }
 
     @GetMapping("/findComponent/{id}")
+    @CrossOrigin
     public ResponseEntity<Component> getComponentById(@PathVariable("id") Long id) {
         Component component = componentService.findComponentById(id);
         return new ResponseEntity<>(component, HttpStatus.OK);
     }
 
     @PostMapping("/addComponent")
+    @CrossOrigin
     public ResponseEntity<Component> addComponent(@RequestBody Component component) {
         Component newComponent = componentService.addComponent(component);
         return new ResponseEntity<>(newComponent, HttpStatus.CREATED);
     }
 
     @PutMapping("/updateComponent")
+    @CrossOrigin
     public ResponseEntity<Component> updateComponent(@RequestBody Component component) {
         Component newComponent = componentService.updateComponent(component);
         return new ResponseEntity<>(newComponent, HttpStatus.OK);
     }
 
     @DeleteMapping("/deleteComponent/{id}")
+    @CrossOrigin
     public ResponseEntity<?> deleteComponent(@PathVariable("id") Long id) {
         componentService.deleteComponent(id);
         return new ResponseEntity<>(HttpStatus.OK);
