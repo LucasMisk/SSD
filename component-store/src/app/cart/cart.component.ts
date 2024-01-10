@@ -4,6 +4,7 @@ import { Cart } from '../Cart';
 import { SharedService } from '../Share.service';
 import { CartItem } from '../CartItem';
 import { CartItemService } from '../CartItem.service';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-cart',
@@ -18,7 +19,8 @@ export class CartComponent implements OnInit {
     constructor(
         private cartService: CartService,
         private sharedService: SharedService,
-        private cartItemService: CartItemService
+        private cartItemService: CartItemService,
+        private router: Router
     ) {
         this.sharedService.stream$.subscribe(this.receiveMessage.bind(this));
     }
@@ -67,7 +69,7 @@ export class CartComponent implements OnInit {
   {
       localStorage.removeItem('cartId');
       this.cartService.deleteCart(this.cart.id).subscribe();
-      window.location.reload();
+      this.router.navigate(['/']);
   }
   calculateTotalPrice(list: CartItem[]): number
   {

@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       this.newUser = new User(0, user.name, user.email, '', user.provider,user.photoUrl,'');
       console.log(this.newUser);
       this.checkIfUserExists(user.email);
-      //this.router.navigate(['/']);
+      this.router.navigate(['/']);
     });
   }
   addUser() {
